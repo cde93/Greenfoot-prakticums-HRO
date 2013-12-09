@@ -4,8 +4,9 @@
     <list default="true" id="5ee83599-a5b7-43db-9b78-992b2b1c7fb3" name="Default" comment="" />
     <ignored path="prakticum 2.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Coast.java" changelist="5ee83599-a5b7-43db-9b78-992b2b1c7fb3" time="1386012560113" ignored="false" />
+    <file path="/Coast.java" changelist="5ee83599-a5b7-43db-9b78-992b2b1c7fb3" time="1386013721495" ignored="false" />
     <file path="/Water.java" changelist="5ee83599-a5b7-43db-9b78-992b2b1c7fb3" time="1386011521951" ignored="false" />
+    <file path="/Ship.java" changelist="5ee83599-a5b7-43db-9b78-992b2b1c7fb3" time="1386016091438" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,10 +69,21 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf>
-          <file leaf-file-name="Coast.java" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="Coast.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Coast.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="130" column="31" selection-start="3519" selection-end="3519" vertical-scroll-proportion="0.7285429">
+                <state line="131" column="10" selection-start="3531" selection-end="3531" vertical-scroll-proportion="0.0">
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Ship.java" pinned="false" current="true" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Ship.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="18" column="41" selection-start="586" selection-end="586" vertical-scroll-proportion="0.28742516">
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -108,6 +120,7 @@
       <list>
         <option value="$PROJECT_DIR$/Water.java" />
         <option value="$PROJECT_DIR$/Coast.java" />
+        <option value="$PROJECT_DIR$/Ship.java" />
       </list>
     </option>
   </component>
@@ -502,7 +515,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Coast.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="130" column="31" selection-start="3519" selection-end="3519" vertical-scroll-proportion="0.7285429">
+        <state line="131" column="10" selection-start="3531" selection-end="3531" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Ship.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="41" selection-start="586" selection-end="586" vertical-scroll-proportion="0.28742516">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

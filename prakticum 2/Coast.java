@@ -18,30 +18,53 @@ public class Coast extends World {
     public List<Dijk> dedijk = new ArrayList<Dijk>();
     public int startAttackLocation = 0;
     public boolean nextIsY = true;
+    public boolean bursted = false;
 
     public Coast() {
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 800, 1);
+        createBinnenDijk();
         createDijk();
         createSea();
         makeRandomStart();
+        setPaintOrder(Bursted.class, Ship.class, Water.class, Dijk.class);
+        Ship ship = new Ship();
+        addObject(ship, 400, 500);
+    }
+    
+    private void createBinnenDijk(){
+        Random rand = new Random();
+        for (int y = 10; y < 100; y += 20) {
+            for (int x = 10; x < 800; x += 20) {
+                int ry = rand.nextInt(3);
+                int rx = rand.nextInt(3);
+                BinnenDijk dijk = new BinnenDijk();
+                addObject(dijk, x+rx, y+ry);
+            }
+        }
     }
 
     private void createDijk() {
-        for (int y = 10; y < 300; y += 20) {
+        Random rand = new Random();
+        for (int y = 210; y < 400; y += 20) {
             for (int x = 10; x < 800; x += 20) {
+                int ry = rand.nextInt(3);
+                int rx = rand.nextInt(3);
                 Dijk dijk = new Dijk();
-                addObject(dijk, x, y);
+                addObject(dijk, x+rx, y+ry);
                 dedijk.add(dijk);
             }
         }
     }
 
     private void createSea() {
-        for (int y = 310; y < 800; y += 20) {
+        Random rand = new Random();        
+        for (int y = 410; y < 800; y += 20) {                       
             for (int x = 10; x < 800; x += 20) {
+                int ry = rand.nextInt(3);
+                int rx = rand.nextInt(3);
                 Water water = new Water();
-                addObject(water, x, y);
+                addObject(water, x+rx, y+ry);
                 sea.add(water);
             }
         }
@@ -70,8 +93,10 @@ public class Coast extends World {
                 int randDijk = rand.nextInt(40);
                 int randWater = rand.nextInt(40);
                 if (randDijk < randWater) {
+                    int ry = rand.nextInt(3);
+                    int rx = rand.nextInt(3);
                     Water newWater = new Water();
-                    addObject(newWater, dijken.get(i).getX(), dijken.get(i).getY());
+                    addObject(newWater, dijken.get(i).getX()+rx, dijken.get(i).getY()+ry);
                     removeObject(dijken.get(i));
                     sea.add(0, newWater);
                 }
@@ -80,29 +105,6 @@ public class Coast extends World {
             makeRandomStart();
         }
     }
-
-    /*private Dijk RandomNearDijk(Water water) {
-        Dijk dijk = null;
-        int cntr = 0;
-        while (dijk == null) {
-            if (cntr > 4) {
-                makeRandomStart();
-                //return;
-            }
-            dijk = water.getRandomNearDijk();
-            if (dijk != null) {
-                if (dijk.getY() > water.getY()) {
-                    dijk = null;
-                }
-                if(dijk.getY() == water.getY() && nextIsY){
-                    dijk = null;
-                }
-
-            }
-            cntr++;
-        }
-        return dijk;
-    }    */
 
     private Water getRandomWater() {
         Water water;
@@ -116,10 +118,19 @@ public class Coast extends World {
     }
 
     public boolean checkBursting() {
-        for (int x = 0; x < 800; x += 20) {
-            List bursted = getObjectsAt(x, 10, Water.class);
+        for (int xc = 0; xc < 800; xc += 20) {
+            List bursted = getObjectsAt(xc, 200, Water.class);
             if (bursted.size() > 0) {
-                System.out.println("Doorgebroken");
+                Random rand = new Random();        
+                for (int y = 110; y < 200; y += 20) {                       
+                    for (int x = 10; x < 800; x += 20) {
+                        int ry = rand.nextInt(3);
+                        int rx = rand.nextInt(3);
+                        Water water = new Water();
+                        addObject(water, x+rx, y+ry);
+                        sea.add(water);
+                    }
+                }
                 return true;
             }
         }
@@ -130,12 +141,13 @@ public class Coast extends World {
         if(Greenfoot.isKeyDown("r")){
             makeRandomStart(100);
         }
-        if (checkBursting() == false) {
-            attack();
+        attack();
+        if (bursted == false) {
+            bursted = checkBursting();
         } else {
             Bursted bursted = new Bursted();
             addObject(bursted, 400, 300);
-            Greenfoot.stop();
+            //Greenfoot.stop();
         }
     }
 }
