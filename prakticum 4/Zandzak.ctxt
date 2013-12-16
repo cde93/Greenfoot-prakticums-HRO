@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=
+comment0.target=void\ act()
+comment1.params=
+comment1.target=boolean\ getPlaced()
+comment2.params=placed
+comment2.target=void\ setPlaced(boolean)
+numComments=3

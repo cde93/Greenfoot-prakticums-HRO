@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Cannon()
+comment1.params=
+comment1.target=void\ act()
+comment2.params=
+comment2.target=void\ placeZandzak()
+comment3.params=image\ XClick\ YClick
+comment3.target=void\ ChangeMouseImage(greenfoot.GreenfootImage,\ int,\ int)
+numComments=4
